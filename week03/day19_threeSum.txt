@@ -1,0 +1,36 @@
+class Solution {
+public:
+    vector<vector<int>> threeSum(vector<int>& nums) {
+
+        vector<vector<int>> total_component;
+        if (nums.size() < 3) return total_component;
+        std::sort(nums.begin(), nums.end());//升序排序
+        int last =nums.size()-1;
+        int i =0;
+        while(i<last&& nums[i]<=0){
+
+            int a = nums[i];
+            int j = i+1;
+            int k = last;
+            while(j<k){
+                int b = nums[j];
+                int c = nums[k];
+                int sum = a+b+c;
+                if(sum==0)
+                    total_component.push_back({i,j,k});
+                if(sum>=0){
+                    while(nums[k]==c&&j<k)
+                        k--;            
+                }
+                if(sum<=0){
+                    while(nums[j]==b&&j<k)
+                        j++;
+                }
+            }
+            while(nums[i]==a&&i<last)
+                i++;
+        }
+        return total_component;
+
+    }
+};
