@@ -1,4 +1,4 @@
 请问老师：
-我提交的代码中shortestPathBinaryMatrix为什么通不过呢？能帮我看看吗？
+我提交的代码中shortestPathBinaryMatrix为什么通不过呢？能帮我看看吗？改了几个小时了都改不正确，实在不知道错在哪里~~
 
 第8周的作业实在来不及做了，下次补上。
