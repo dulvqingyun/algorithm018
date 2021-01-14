@@ -1,24 +1,14 @@
-class Solution {
-public:
-    ListNode* oddEvenList(ListNode* head) {
+ListNode* oddEvenList(ListNode* head) {
         if(!head||!head->next) return head;
         ListNode*even = head->next;
         ListNode*pre = head;
         ListNode*p = head->next;
-        int num=0;
-        while(p->next){
-            pre->next = p->next;
-            pre =p;
-            p= p->next;
-            num++;    
+        while(pre && p && pre->next &&p->next){
+            pre->next = pre->next->next;
+            p->next = p->next->next;
+            pre = pre->next;
+            p = p->next;
         }
-        if(num%2==0)
-            pre->next = even;
-        else{
-            pre->next=nullptr;
-            p->next = even;
-        }     
-        return head;
-        
+        pre->next = even;    
+        return head;  
     }
-};

@@ -1,24 +1,29 @@
 class Solution {
 public:
     vector<vector<int>> permuteUnique(vector<int>& nums) {
-
-        vector<vector<int>> result;
-        help(nums,0,result);
+        if(nums.size()==0) return {};
+        permuteUnique_(nums,0);
         return result;
-
     }
-    void help(vector<int>nums, int pos, vector<vector<int>>& res){
-        if(nums.size()==0) return;
+
+    void permuteUnique_(vector<int>& nums, int pos){
         if(pos==nums.size()-1){
-            res.push_back(nums);
-            return;
+            result.push_back(nums);
+            return ;
         }
+        unordered_set<int> seen;
+        for(int i =pos; i< nums.size(); i++){
+            if(!seen.count(nums[i])){
+                swap(nums[pos],nums[i]);
+                permuteUnique_(nums,pos+1);
+                swap(nums[pos],nums[i]);
+                seen.insert(nums[i]);
+            }
 
-        for(int i=pos;i<nums.size();i++){
-            if(pos!=i&&nums[pos]==nums[i]) continue;
-            swap(nums[pos],nums[i]);
-            help(nums,pos+1,res);
-            swap(nums[pos],nums[i]);
         }
     }
+
+    
+private:
+    vector<vector<int>> result;
 };

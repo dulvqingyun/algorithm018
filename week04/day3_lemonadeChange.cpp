@@ -18,14 +18,6 @@ public:
                     return false;
 
             }
-            else if(num==10){
-                if(income[10]>0)
-                    income[10]--;
-                else if(income[5]>1)
-                    income[5] -=2;
-                else
-                    return false;
-            }
             else if(num==5){
                 if(income[5]>0)
                     income[5]--;
@@ -34,6 +26,5 @@ public:
             }        
         }
         return true;
-
     }
 };
